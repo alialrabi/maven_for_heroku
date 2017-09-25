@@ -1,0 +1,14 @@
+version: '2'
+services:
+    maven_for_heroku-app:
+        image: maven_for_heroku
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://maven_for_heroku-postgresql:5432/maven_for_heroku
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    maven_for_heroku-postgresql:
+        extends:
+            file: postgresql.yml
+            service: maven_for_heroku-postgresql

@@ -1,0 +1,11 @@
+version: '2'
+services:
+    maven_for_heroku-postgresql:
+        image: postgres:9.6.2
+        # volumes:
+        #     - ~/volumes/jhipster/maven_for_heroku/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=maven_for_heroku
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
